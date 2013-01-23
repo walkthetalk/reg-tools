@@ -5,7 +5,7 @@
 #     busybox's 'hexdump' can't process ' ' correctly
 #     if any problem, please contackt niqingliang@insigma.com.cn
 
-G_FILE="/dev/tin_regs_info"
+G_FILE="/dev/jilong/debugger"
 G_BS="4"
 G_LINE_BYTES_NUM="16"
 G_COUNT="64"
@@ -180,8 +180,12 @@ dsp_single_line()
 		L_REG_HEX_POST="${L_HD_POST_BLOCKS}/ \" ${G_BS_SPACE}\""
 		L_REG_ASC_POST="$4/ \"_\""
 	fi
+	L_DD_SKIP_BLOCKS=0
+	let "L_DD_SKIP_BLOCKS=$1*${G_LINE_BYTES_NUM}/${G_BS}+$2/${G_BS}"
+	L_DD_BLOCKS=0
+	let "L_DD_BLOCKS=$3/${G_BS}"
 	# display
-	dd if=${G_FILE} bs=${G_LINE_BYTES_NUM} count=1 skip=$1 2>/dev/null\
+	dd if=${G_FILE} bs=${G_BS} count=${L_DD_BLOCKS} skip=${L_DD_SKIP_BLOCKS} 2>/dev/null\
 		| hexdump -v \
 			-n $3 \
 			-e "${L_REG_HEX_PRE} ${L_REG_HEX_SELF} ${L_REG_HEX_POST}" \
