@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 # NOTE:
 #     busybox's 'expr' can't process long long, so use 'let' embedded in bash.
 #     busybox's 'hexdump' can't process large files(> 2G)
 #     busybox's 'hexdump' can't process ' ' correctly
-#     if any problem, please contackt niqingliang@insigma.com.cn
+#     if any problem, please contact niqingliang2003@gmail.com
 
 G_FILE="/dev/jilong/debugger"
 G_BS="4"
