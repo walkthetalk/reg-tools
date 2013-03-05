@@ -89,7 +89,7 @@ hex_gen()
 		L_NEW=${L_VAL_HEX:${L_LOOP_CNT}:2}
 		L_VAL_ORDER="`echo "${L_VAL_ORDER}" \
 			| sed "s/^\(.\{${L_POS}\}\).\{2\}\(.*\)/\1${L_NEW}\2/"`"
-		
+
 		let "L_LOOP_CNT+=2"
 	done
 
@@ -121,7 +121,7 @@ while true; do
 	# read
 	L_NEW_VAL=""
 	read -r L_NEW_VAL
-	if [ "${L_NEW_VAL}" = "." ]; then
+	if [ "${L_NEW_VAL}" == "." ]; then
 		exit 0
 	fi
 	# modify
