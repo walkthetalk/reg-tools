@@ -5,7 +5,7 @@
 #     busybox's 'hexdump' can't process ' ' correctly
 #     if any problem, please contact niqingliang2003@gmail.com
 
-G_FILE="/dev/tin_regs_info"
+G_FILE="/dev/jilong/debugger"
 G_BS="4"
 
 G_BASE_NAME="`basename $0`"
